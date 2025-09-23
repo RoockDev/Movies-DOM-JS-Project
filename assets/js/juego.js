@@ -48,8 +48,12 @@ const btnShowMovie = () => {
   btnMovie.addEventListener("click", () => {
     let movie = getMovie(movieDeck);
 
+    const existeImagen = divPelicula.querySelector("img");
+    if (existeImagen) {
+      divPelicula.removeChild(existeImagen);
+    }
+    
     const imgElement = document.createElement("img");
-
     imgElement.src = `assets/movies/${movie}.jpg`;
     imgElement.classList.add("elemento");
     divPelicula.appendChild(imgElement);
