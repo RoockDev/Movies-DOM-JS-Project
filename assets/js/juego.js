@@ -30,30 +30,45 @@ const getElementsDeck = () => {
 let movieDeck = getMoviesDeck();
 let elementDeck = getElementsDeck();
 
-const getMovie = (movieDeck) => {
-  if (movieDeck.length === 0) {
-    throw "No hay mas peliculas";
+const getElement = (elementDeck) => {
+  if (elementDeck.length === 0) {
+    throw "No hay mas cartas";
   } else {
-    const tarjeta = movieDeck.pop();
+    const tarjeta = elementDeck.pop();
 
     return tarjeta;
   }
 };
 
+const removeMovieDeck = (deck) => {
+    if (deck.length === 0){
+      throw new Error("no quedan mas películas");
+      
+    }else{
+        return deck.pop();
+    }
+    
+};
+
 const btnShowMovie = () => {
   const btnMovie = document.querySelector("#btnMovie");
 
-  const divPelicula = document.querySelector("#pelicula-caratula");
+  const divMovie = document.querySelector("#pelicula-caratula");
 
   btnMovie.addEventListener("click", () => {
-    let movie = getMovie(movieDeck);
 
-    const imgElement = document.createElement("img");
+    const movie = removeMovieDeck(movieDeck);
 
-    imgElement.src = `assets/movies/${movie}.jpg`;
-    imgElement.classList.add("elemento");
-    divPelicula.appendChild(imgElement);
+    if (movie) {
+        const firstImg = divMovie.querySelector('img');
+
+        firstImg.src = `assets/movies/${movie}.jpg`;
+    }
+
   });
 };
 
 btnShowMovie();
+
+
+
