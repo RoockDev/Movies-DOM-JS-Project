@@ -147,7 +147,10 @@ const peliculaAcertada = () => {
   }
 };
 
-
+const mostrarGameOverModal = () =>{
+  document.getElementById('final-completadas').textContent = peliculasCompletadas;
+  document.getElementById('gameOverModal').classList.remove('hidden');
+}
 
 const actualizarContadorIntentos = () =>{
   intentosTotales++;
@@ -190,7 +193,11 @@ const iniHuecos = () => {
         // Aqui pondremos luego la logica para ver si la pelicula esta completamente bien
       } else {
         e.currentTarget.classList.add("incorrecto");
+       
         actualizarContadorIntentos();
+         if (intentosTotales == 10) {
+          mostrarGameOverModal();
+        }
       }
 
       divActualmenteArrastrado = null;
@@ -203,6 +210,9 @@ const iniHuecos = () => {
   });
 };
 
+
+
 btnShowMovie();
 btnAdivinar();
 iniHuecos();
+inicializarBotonReiniciar();
