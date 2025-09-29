@@ -2,6 +2,8 @@
  * Vamos a crear dos montones de tarjetas, uno de películas y otro de recursos relacionados:
  *
  */
+let intentosTotales = 0;
+const MAX_INTENTOS_TOTALES = 10;
 let personajesCorrectos = 0;
 let peliculasCompletadas = 0;
 const TOTAL_PELICULAS = 5;
@@ -145,6 +147,17 @@ const peliculaAcertada = () => {
   }
 };
 
+const mostrarGameOverModal = () =>{
+  document.getElementById('final-completadas').textContent = peliculasCompletadas;
+  document.getElementById('gameOverModal').classList.remove('hidden');
+}
+
+const actualizarContadorIntentos = () =>{
+  intentosTotales++;
+  document.getElementById('contador-intentos').textContent = intentosTotales;
+  
+}
+
 const iniHuecos = () => {
   const hueco1 = document.getElementById("hueco1");
   const hueco2 = document.getElementById("hueco2");
@@ -180,6 +193,11 @@ const iniHuecos = () => {
         // Aqui pondremos luego la logica para ver si la pelicula esta completamente bien
       } else {
         e.currentTarget.classList.add("incorrecto");
+       
+        actualizarContadorIntentos();
+         if (intentosTotales == 10) {
+          mostrarGameOverModal();
+        }
       }
 
       divActualmenteArrastrado = null;
@@ -192,6 +210,9 @@ const iniHuecos = () => {
   });
 };
 
+
+
 btnShowMovie();
 btnAdivinar();
 iniHuecos();
+inicializarBotonReiniciar();
