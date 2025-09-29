@@ -12,6 +12,7 @@
         Movies
         <div class="contador-peliculas">
             Películas completadas: <span id="contador-completadas">0</span>/<span id="contador-total">5</span>
+             | Intentos: <span id="contador-intentos">0</span>/<span id="contador-max-intentos">10</span>
         </div>
     </header>
 
@@ -43,6 +44,14 @@
                 <!--<div class="elemento"><img class="recurso" src="assets/characters/01C2.jpg" alt=""></div>  -->
             </div>
         </div>
+    </div>
+    <div id="gameOverModal" class="modal-overlay hidden">
+        <div class="modal-content">
+            <h2>¡Game Over!</h2>
+            <p>Películas completadas: <span id="final-completadas">0</span>/<span id="final-total">5</span></p>
+            <button id="btnReiniciar">Jugar de nuevo</button>
+        </div>
+
     </div>
     <script src="assets/js/underscore-umd.js"></script>
     <script src="assets/js/juego.js"></script>
