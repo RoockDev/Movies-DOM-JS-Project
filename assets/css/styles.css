@@ -9,6 +9,7 @@ html, body {
     background-color: rgb(0, 0, 0);
     color: white;
     padding: 20px;
+    font-weight: bold;
     font-size: 25px;
 }
 
@@ -41,6 +42,16 @@ html, body {
 
 #elementos-pelicula, #pelicula-caratula {
     height: 320px;
+}
+.contador-peliculas {
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 5px 10px;
+    border-radius: 5px;
 }
 
 .drop-hueco {
