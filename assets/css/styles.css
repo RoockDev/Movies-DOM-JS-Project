@@ -24,13 +24,13 @@ html, body {
     width: 210px;
     height: 310px;
     left: 100px;
-    margin-right: 15px;
+    margin-right: 115px;
     float:left;
     display: flex;
     align-items: center;
     justify-content: center;
     border-color: azure;
-    border-width: 2px;
+    border-width: 5px;
     border-radius: 10px;
     border-style: solid;
 }
@@ -41,4 +41,97 @@ html, body {
 
 #elementos-pelicula, #pelicula-caratula {
     height: 320px;
+}
+
+.drop-hueco {
+  width: 210px;
+  height: 310px;
+  margin-right: 15px;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: azure;
+  border-width: 2px;
+  border-radius: 10px;
+  border: 5px dashed #aaa;
+  background-color: #f9f9f9b3;
+  cursor: pointer;
+  
+}
+
+.correcto{
+     width: 210px;
+  height: 310px;
+  margin-right: 15px;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: rgb(12, 176, 34);
+  border-width: 2px;
+  border-radius: 10px;
+  border: 5px dashed rgb(12, 176, 34);
+  background-color: #f9f9f9b3;
+  cursor: pointer;
+}
+
+.incorrecto{
+       width: 210px;
+  height: 310px;
+  margin-right: 15px;
+  float: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-color: rgb(198, 22, 19);
+  border-width: 2px;
+  border-radius: 10px;
+  border: 5px dashed rgb(198, 22, 19);
+  background-color: #f9f9f9b3;
+  cursor: pointer;
+
+}
+
+
+.personaje-contenedor{
+    position: relative;
+
+    width: 210px;
+    height: 310px;
+    left: 100px;
+    margin-right: 15px;
+    margin-bottom: 10px;
+    float:left;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: azure;
+    border-width: 5px;
+    border-radius: 10px;
+    border-style: solid;
+    cursor: pointer;
+}
+
+.personaje-contenedor img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+.drop-hueco .personaje-contenedor {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    float: none;
+    border: none; 
+    position: static; 
+}
+
+.drop-hueco .personaje-contenedor img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px; 
 }
