@@ -55,6 +55,22 @@ const btnShowMovie = () => {
   const divMovie = document.querySelector("#pelicula-caratula");
 
   btnMovie.addEventListener("click", () => {
+    //Limpiamos los huecos
+    document.getElementById("hueco1").innerHTML = '';
+    document.getElementById("hueco2").innerHTML = '';
+    document.getElementById("hueco3").innerHTML = '';
+
+    document.getElementById("hueco1").classList.remove('correcto','incorrecto');
+    document.getElementById("hueco2").classList.remove('correcto','incorrecto');
+    document.getElementById("hueco3").classList.remove('correcto','incorrecto');
+
+    //limpiar zona inferior
+    document.getElementById('elementos-pelicula').innerHTML = '';
+
+    //reiniciamos el mazo de personajes
+    elementDeck = getElementsDeck();
+
+    
     const movie = removeMovieDeck(movieDeck);
     if (movie) {
         const firstImg = divMovie.querySelector('img');
