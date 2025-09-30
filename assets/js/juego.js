@@ -143,6 +143,7 @@ const peliculaAcertada = () => {
     peliculasCompletadas++;
     document.getElementById("contador-completadas").textContent =
       peliculasCompletadas;
+    
       
   }
 };
@@ -150,6 +151,11 @@ const peliculaAcertada = () => {
 const mostrarGameOverModal = () =>{
   document.getElementById('final-completadas').textContent = peliculasCompletadas;
   document.getElementById('gameOverModal').classList.remove('hidden');
+}
+
+const mostrarWinModal = () => {
+  document.getElementById('completadas').textContent = peliculasCompletadas;
+   document.getElementById('winModal').classList.remove('hidden');
 }
 
 const actualizarContadorIntentos = () =>{
@@ -188,6 +194,10 @@ const iniHuecos = () => {
         personajesCorrectos += 1;
         //si la pelicula ha sido completada se le suma uno al contador
         peliculaAcertada();
+        if (peliculasCompletadas == 5) {
+      mostrarWinModal();
+    };
+        
 
         e.currentTarget.appendChild(divActualmenteArrastrado);
         // Aqui pondremos luego la logica para ver si la pelicula esta completamente bien
@@ -210,9 +220,7 @@ const iniHuecos = () => {
   });
 };
 
-const inicializarBotonReiniciar = () =>{
-  let btnReiniciar = document.getElementById('btnReiniciar');
-  btnReiniciar.addEventListener('click' ,() =>{
+const reiniciarJuego = () =>{
     //Reiniciamos todas las variables
     peliculasCompletadas = 0;
     personajesCorrectos = 0;
@@ -224,6 +232,7 @@ const inicializarBotonReiniciar = () =>{
 
     //ocultamos el modal
     document.getElementById('gameOverModal').classList.add('hidden');
+    document.getElementById('winModal').classList.add('hidden');
 
     //limpiamos la pantalla
     document.getElementById('contador-completadas').textContent = '0';
@@ -240,11 +249,27 @@ const inicializarBotonReiniciar = () =>{
 
     //limpiamos la ultima imagen de la ultima pelicula a la que hemos jugado
     const firstImg = document.querySelector("#pelicula-caratula img");
+    firstImg.src = '';
 
     //reiniciamos pelicula activa para la logica del juego
     peliculaActiva = null;
-  });
+  
 }
+
+const reiniciarGameOver = () =>{
+  reiniciarJuego();
+};
+
+const reiniciarWin = () => {
+  reiniciarJuego()
+};
+
+const inicializarBotonReiniciar = () =>{
+  const GameOVer = document.getElementById('btnReiniciarGameOver');
+  const Win = document.getElementById('btnReiniciarWin');
+  GameOVer.addEventListener('click', reiniciarGameOver);
+  Win.addEventListener('click',reiniciarWin);
+};
 
 
 

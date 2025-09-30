@@ -13,6 +13,28 @@ html, body {
     font-size: 25px;
 }
 
+
+#elementos-pelicula {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px;
+    background-color: #5b6363;
+    width: 100%;
+}
+.titulo-centrado {
+    text-align: center;
+    color: white;
+    margin: 20px 0;         /* Espacio arriba y abajo */
+}
+
+.adivina-container {
+    width: 100%;
+    padding: 20px;
+    
+}
+
 .pelicula {
     position: relative;
     width: 200px;
@@ -24,9 +46,7 @@ html, body {
     background-color: black;
     width: 210px;
     height: 310px;
-    left: 100px;
-    margin-right: 115px;
-    float:left;
+    margin-right: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -53,22 +73,25 @@ html, body {
     padding: 5px 10px;
     border-radius: 5px;
 }
+.pelicula-container {
+    width: 100%;
+    padding: 20px;
+}
 
 .drop-hueco {
-  width: 210px;
-  height: 310px;
-  margin-right: 15px;
-  float: left;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-color: azure;
-  border-width: 2px;
-  border-radius: 10px;
-  border: 5px dashed #aaa;
-  background-color: #f9f9f9b3;
-  cursor: pointer;
-  
+    width: 210px;
+    height: 310px;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-color: azure;
+    border-width: 2px;
+    border-radius: 10px;
+    border: 5px dashed #aaa;
+    background-color: #f9f9f9b3;
+    cursor: pointer;
+         
 }
 
 .correcto{
@@ -86,6 +109,16 @@ html, body {
   background-color: #f9f9f9b3;
   cursor: pointer;
 }
+#pelicula-caratula {
+    display: flex;
+    align-items: center;      
+    justify-content: center;  
+    gap: 10px;              
+    padding: 10px;
+    background-color: #5b6363;
+    width: 100%;
+}
+
 
 .incorrecto{
        width: 210px;
@@ -147,7 +180,7 @@ html, body {
     border-radius: 10px; 
 }
 
-/*Css para la pantalla modal de avisos*/
+
 .modal-overlay{
     position: fixed;
     top: 0;
