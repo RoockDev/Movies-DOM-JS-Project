@@ -210,6 +210,42 @@ const iniHuecos = () => {
   });
 };
 
+const inicializarBotonReiniciar = () =>{
+  let btnReiniciar = document.getElementById('btnReiniciar');
+  btnReiniciar.addEventListener('click' ,() =>{
+    //Reiniciamos todas las variables
+    peliculasCompletadas = 0;
+    personajesCorrectos = 0;
+    intentosTotales = 0;
+
+    //reiniciamos los mazos
+    movieDeck = getMoviesDeck();
+    elementDeck = getElementsDeck();
+
+    //ocultamos el modal
+    document.getElementById('gameOverModal').classList.add('hidden');
+
+    //limpiamos la pantalla
+    document.getElementById('contador-completadas').textContent = '0';
+    document.getElementById('contador-intentos').textContent = '0';
+    document.getElementById('hueco1').innerHTML = '';
+    document.getElementById('hueco2').innerHTML = '';
+    document.getElementById('hueco3').innerHTML = '';
+    document.getElementById('elementos-pelicula').innerHTML = '';
+
+    //limpiamos los estilos que le dimos a los huecos de arriba cuando fuese correcto y cuando no
+    document.getElementById('hueco1').classList.remove('correcto','incorrecto');
+    document.getElementById('hueco2').classList.remove('correcto','incorrecto');
+    document.getElementById('hueco3').classList.remove('correcto','incorrecto');
+
+    //limpiamos la ultima imagen de la ultima pelicula a la que hemos jugado
+    const firstImg = document.querySelector("#pelicula-caratula img");
+
+    //reiniciamos pelicula activa para la logica del juego
+    peliculaActiva = null;
+  });
+}
+
 
 
 btnShowMovie();
