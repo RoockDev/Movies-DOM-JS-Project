@@ -143,26 +143,24 @@ const peliculaAcertada = () => {
     peliculasCompletadas++;
     document.getElementById("contador-completadas").textContent =
       peliculasCompletadas;
-    
-      
   }
 };
 
-const mostrarGameOverModal = () =>{
-  document.getElementById('final-completadas').textContent = peliculasCompletadas;
-  document.getElementById('gameOverModal').classList.remove('hidden');
-}
+const mostrarGameOverModal = () => {
+  document.getElementById("final-completadas").textContent =
+    peliculasCompletadas;
+  document.getElementById("gameOverModal").classList.remove("hidden");
+};
 
 const mostrarWinModal = () => {
-  document.getElementById('completadas').textContent = peliculasCompletadas;
-   document.getElementById('winModal').classList.remove('hidden');
-}
+  document.getElementById("completadas").textContent = peliculasCompletadas;
+  document.getElementById("winModal").classList.remove("hidden");
+};
 
-const actualizarContadorIntentos = () =>{
+const actualizarContadorIntentos = () => {
   intentosTotales++;
-  document.getElementById('contador-intentos').textContent = intentosTotales;
-  
-}
+  document.getElementById("contador-intentos").textContent = intentosTotales;
+};
 
 const iniHuecos = () => {
   const hueco1 = document.getElementById("hueco1");
@@ -195,17 +193,15 @@ const iniHuecos = () => {
         //si la pelicula ha sido completada se le suma uno al contador
         peliculaAcertada();
         if (peliculasCompletadas == 5) {
-      mostrarWinModal();
-    };
-        
+          mostrarWinModal();
+        }
 
         e.currentTarget.appendChild(divActualmenteArrastrado);
-        // Aqui pondremos luego la logica para ver si la pelicula esta completamente bien
       } else {
         e.currentTarget.classList.add("incorrecto");
-       
+
         actualizarContadorIntentos();
-         if (intentosTotales == 10) {
+        if (intentosTotales == 10) {
           mostrarGameOverModal();
         }
       }
@@ -220,58 +216,55 @@ const iniHuecos = () => {
   });
 };
 
-const reiniciarJuego = () =>{
-    //Reiniciamos todas las variables
-    peliculasCompletadas = 0;
-    personajesCorrectos = 0;
-    intentosTotales = 0;
+const reiniciarJuego = () => {
+  //Reiniciamos todas las variables
+  peliculasCompletadas = 0;
+  personajesCorrectos = 0;
+  intentosTotales = 0;
 
-    //reiniciamos los mazos
-    movieDeck = getMoviesDeck();
-    elementDeck = getElementsDeck();
+  //reiniciamos los mazos
+  movieDeck = getMoviesDeck();
+  elementDeck = getElementsDeck();
 
-    //ocultamos el modal
-    document.getElementById('gameOverModal').classList.add('hidden');
-    document.getElementById('winModal').classList.add('hidden');
+  //ocultamos el modal
+  document.getElementById("gameOverModal").classList.add("hidden");
+  document.getElementById("winModal").classList.add("hidden");
 
-    //limpiamos la pantalla
-    document.getElementById('contador-completadas').textContent = '0';
-    document.getElementById('contador-intentos').textContent = '0';
-    document.getElementById('hueco1').innerHTML = '';
-    document.getElementById('hueco2').innerHTML = '';
-    document.getElementById('hueco3').innerHTML = '';
-    document.getElementById('elementos-pelicula').innerHTML = '';
+  //limpiamos la pantalla
+  document.getElementById("contador-completadas").textContent = "0";
+  document.getElementById("contador-intentos").textContent = "0";
+  document.getElementById("hueco1").innerHTML = "";
+  document.getElementById("hueco2").innerHTML = "";
+  document.getElementById("hueco3").innerHTML = "";
+  document.getElementById("elementos-pelicula").innerHTML = "";
 
-    //limpiamos los estilos que le dimos a los huecos de arriba cuando fuese correcto y cuando no
-    document.getElementById('hueco1').classList.remove('correcto','incorrecto');
-    document.getElementById('hueco2').classList.remove('correcto','incorrecto');
-    document.getElementById('hueco3').classList.remove('correcto','incorrecto');
+  //limpiamos los estilos que le dimos a los huecos de arriba cuando fuese correcto y cuando no
+  document.getElementById("hueco1").classList.remove("correcto", "incorrecto");
+  document.getElementById("hueco2").classList.remove("correcto", "incorrecto");
+  document.getElementById("hueco3").classList.remove("correcto", "incorrecto");
 
-    //limpiamos la ultima imagen de la ultima pelicula a la que hemos jugado
-    const firstImg = document.querySelector("#pelicula-caratula img");
-    firstImg.src = '';
+  //limpiamos la ultima imagen de la ultima pelicula a la que hemos jugado
+  const firstImg = document.querySelector("#pelicula-caratula img");
+  firstImg.src = "";
 
-    //reiniciamos pelicula activa para la logica del juego
-    peliculaActiva = null;
-  
-}
+  //reiniciamos pelicula activa para la logica del juego
+  peliculaActiva = null;
+};
 
-const reiniciarGameOver = () =>{
+const reiniciarGameOver = () => {
   reiniciarJuego();
 };
 
 const reiniciarWin = () => {
-  reiniciarJuego()
+  reiniciarJuego();
 };
 
-const inicializarBotonReiniciar = () =>{
-  const GameOVer = document.getElementById('btnReiniciarGameOver');
-  const Win = document.getElementById('btnReiniciarWin');
-  GameOVer.addEventListener('click', reiniciarGameOver);
-  Win.addEventListener('click',reiniciarWin);
+const inicializarBotonReiniciar = () => {
+  const GameOVer = document.getElementById("btnReiniciarGameOver");
+  const Win = document.getElementById("btnReiniciarWin");
+  GameOVer.addEventListener("click", reiniciarGameOver);
+  Win.addEventListener("click", reiniciarWin);
 };
-
-
 
 btnShowMovie();
 btnAdivinar();
